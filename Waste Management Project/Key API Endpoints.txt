@@ -1,0 +1,9 @@
+Key API Endpoints
+
+Endpoint	Method	Description
+/api/bins	GET	List all bins with status
+/api/bins/:id	GET	Get specific bin details
+/api/bins/:id/data	GET	Get historical data for bin
+/api/routes/optimize	POST	Generate optimized collection route
+/api/alerts	GET	List active alerts
+/ws/updates	WS	WebSocket for real-time updates

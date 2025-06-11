@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resume Builder | Placement Portal</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- <style>
+        .resume-section {
+            background-color: #f8f9fa;
+            border-radius: 10px;
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+        .resume-preview {
+            border: 1px solid #dee2e6;
+            border-radius: 5px;
+            min-height: 300px;
+            background-color: white;
+        }
+        .template-card {
+            transition: all 0.3s;
+            cursor: pointer;
+        }
+        .template-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+        .template-card.selected {
+            border: 3px solid #0d6efd;
+        }
+        .nav-tabs .nav-link.active {
+            font-weight: bold;
+            border-bottom: 3px solid #0d6efd;
+        }
+        @media (max-width: 768px) {
+            .resume-preview-container {
+                order: -1;
+                margin-bottom: 20px;
+            }
+            .template-card {
+                margin-bottom: 15px;
+            }
+        }
+    </style> -->
+</head>
+<body>
+    <!-- Navigation (same as before) -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+        <!-- ... same nav as previous examples ... -->
+    </nav>
+
+    <div class="container py-4">
+        <div class="d-flex justify-content-between align-items-center mb-4">
+            <h1><i class="fas fa-file-alt me-2"></i>Resume Builder</h1>
+            <div>
+                <button class="btn btn-primary me-2">
+                    <i class="fas fa-download me-1"></i>Download PDF
+                </button>
+                <button class="btn btn-outline-primary">
+                    <i class="fas fa-save me-1"></i>Save
+                </button>
+            </div>
+        </div>
+
+        <div class="row">
+            <!-- Left Column - Editor -->
+            <div class="col-lg-8 order-lg-1 order-2">
+                <ul class="nav nav-tabs mb-4" id="resumeTabs" role="tablist">
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link active" id="content-tab" data-bs-toggle="tab" data-bs-target="#content" type="button">Content</button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link" id="design-tab" data-bs-toggle="tab" data-bs-target="#design" type="button">Design</button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link" id="preview-tab" data-bs-toggle="tab" data-bs-target="#preview" type="button">Preview</button>
+                    </li>
+                </ul>
+
+                <div class="tab-content" id="resumeTabContent">
+                    <div class="tab-pane fade show active" id="content" role="tabpanel">
+                        <div class="resume-section">
+                            <div class="d-flex justify-content-between align-items-center mb-3">
+                                <h4>Personal Information</h4>
+                                <button class="btn btn-sm btn-outline-primary"><i class="fas fa-edit"></i></button>
+                            </div>
+                            <div class="row g-3">
+                                <div class="col-md-6">
+                                    <label class="form-label">Full Name</label>
+                                    <input type="text" class="form-control" value="John Doe">
+                                </div>
+                                <div class="col-md-6">
+                                    <label class="form-label">Email</label>
+                                    <input type="email" class="form-control" value="john.doe@example.com">
+                                </div>
+                                <div class="col-md-6">
+                                    <label class="form-label">Phone</label>
+                                    <input type="tel" class="form-control" value="+1 (123) 456-7890">
+                                </div>
+                                <div class="col-md-6">
+                                    <label class="form-label">LinkedIn</label>
+                                    <input type="url" class="form-control" value="linkedin.com/in/johndoe">
+                                </div>
+                                <div class="col-12">
+                                    <label class="form-label">Professional Summary</label>
+                                    <textarea class="form-control" rows="3">Passionate Computer Science student with expertise in web development and machine learning. Seeking internship opportunities to apply my skills and grow professionally.</textarea>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="resume-section">
+                            <div class="d-flex justify-content-between align-items-center mb-3">
+                                <h4>Education</h4>
+                                <button class="btn btn-sm btn-outline-primary"><i class="fas fa-plus"></i> Add</button>
+                            </div>
+                            <div class="education-item mb-3 p-3 bg-light rounded">
+                                <div class="d-flex justify-content-between">
+                                    <h5>ABC University</h5>
+                                    <div>
+                                        <button class="btn btn-sm btn-outline-secondary me-1"><i class="fas fa-edit"></i></button>
+                                        <button class="btn btn-sm btn-outline-danger"><i class="fas fa-trash"></i></button>
+                                    </div>
+                                </div>
+                                <p class="mb-1">Bachelor of Science in Computer Science</p>
+                                <p class="text-muted">2019 - 2023 | GPA: 3.8/4.0</p>
+                            </div>
+                        </div>
+
+                        <div class="resume-section">
+                            <div class="d-flex justify-content-between align-items-center mb-3">
+                                <h4>Experience</h4>
+                                <button class="btn btn-sm btn-outline-primary"><i class="fas fa-plus"></i> Add</button>
+                            </div>
+                            <div class="experience-item mb-3 p-3 bg-light rounded">
+                                <div class="d-flex justify-content-between">
+                                    <h5>Web Developer Intern</h5>
+                                    <div>
+                                        <button class="btn btn-sm btn-outline-secondary me-1"><i class="fas fa-edit"></i></button>
+                                        <button class="btn btn-sm btn-outline-danger"><i class="fas fa-trash"></i></button>
+                                    </div>
+                                </div>
+                                <p class="mb-1">Tech Solutions Inc.</p>
+                                <p class="text-muted mb-2">Summer 2022</p>
+                                <ul>
+                                    <li>Developed responsive web applications using React and Node.js</li>
+                                    <li>Implemented REST APIs for data management</li>
+                                    <li>Collaborated with team using Agile methodologies</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="resume-section">
+                            <div class="d-flex justify-content-between align-items-center mb-3">
+                                <h4>Skills</h4>
+                                <button class="btn btn-sm btn-outline-primary"><i class="fas fa-plus"></i> Add</button>
+                            </div>
+                            <div class="skills-container">
+                                <div class="mb-3">
+                                    <input type="text" class="form-control" placeholder="Add skill (e.g., JavaScript, Python)" value="JavaScript, Python, React, Node.js, HTML/CSS, SQL">
+                                </div>
+                                <div>
+                                    <span class="badge bg-primary me-2 mb-2 p-2">JavaScript</span>
+                                    <span class="badge bg-primary me-2 mb-2 p-2">Python</span>
+                                    <span class="badge bg-primary me-2 mb-2 p-2">React</span>
+                                    <span class="badge bg-primary me-2 mb-2 p-2">Node.js</span>
+                                    <span class="badge bg-primary me-2 mb-2 p-2">HTML/CSS</span>
+                                    <span class="badge bg-primary me-2 mb-2 p-2">SQL</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="tab-pane fade" id="design" role="tabpanel">
+                        <h4 class="mb-4">Choose a Template</h4>
+                        <div class="row">
+                            <div class="col-md-6 col-lg-4">
+                                <div class="card template-card selected">
+                                    <img src="https://via.placeholder.com/300x400?text=Template+1" class="card-img-top" alt="Template 1">
+                                    <div class="card-body text-center">
+                                        <h5 class="card-title">Professional</h5>
+                                        <button class="btn btn-sm btn-primary">Select</button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6 col-lg-4">
+                                <div class="card template-card">
+                                    <img src="https://via.placeholder.com/300x400?text=Template+2" class="card-img-top" alt="Template 2">
+                                    <div class="card-body text-center">
+                                        <h5 class="card-title">Modern</h5>
+                                        <button class="btn btn-sm btn-outline-primary">Select</button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6 col-lg-4">
+                                <div class="card template-card">
+                                    <img src="https://via.placeholder.com/300x400?text=Template+3" class="card-img-top" alt="Template 3">
+                                    <div class="card-body text-center">
+                                        <h5 class="card-title">Creative</h5>
+                                        <button class="btn btn-sm btn-outline-primary">Select</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="resume-section mt-4">
+                            <h4 class="mb-3">Customize Colors</h4>
+                            <div class="row g-3">
+                                <div class="col-md-4">
+                                    <label class="form-label">Primary Color</label>
+                                    <input type="color" class="form-control form-control-color" value="#0d6efd">
+                                </div>
+                                <div class="col-md-4">
+                                    <label class="form-label">Secondary Color</label>
+                                    <input type="color" class="form-control form-control-color" value="#6c757d">
+                                </div>
+                                <div class="col-md-4">
+                                    <label class="form-label">Accent Color</label>
+                                    <input type="color" class="form-control form-control-color" value="#198754">
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="resume-section mt-4">
+                            <h4 class="mb-3">Font Settings</h4>
+                            <div class="row g-3">
+                                <div class="col-md-6">
+                                    <label class="form-label">Heading Font</label>
+                                    <select class="form-select">
+                                        <option selected>Open Sans</option>
+                                        <option>Roboto</option>
+                                        <option>Lato</option>
+                                        <option>Montserrat</option>
+                                    </select>
+                                </div>
+                                <div class="col-md-6">
+                                    <label class="form-label">Body Font</label>
+                                    <select class="form-select">
+                                        <option selected>Roboto</option>
+                                        <option>Open Sans</option>
+                                        <option>Lato</option>
+                                        <option>Montserrat</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="tab-pane fade" id="preview" role="tabpanel">
+                        <div class="resume-preview p-4">
+                            <!-- Resume preview content would be rendered here -->
+                            <h2 class="text-primary">John Doe</h2>
+                            <p class="text-muted">john.doe@example.com | (123) 456-7890 | linkedin.com/in/johndoe</p>
+                            <hr>
+                            <h4 class="text-primary">Professional Summary</h4>
+                            <p>Passionate Computer Science student with expertise in web development and machine learning. Seeking internship opportunities to apply my skills and grow professionally.</p>
+                            
+                            <h4 class="text-primary mt-4">Education</h4>
+                            <div class="d-flex justify-content-between">
+                                <h5>ABC University</h5>
+                                <p class="text-muted">2019 - 2023</p>
+                            </div>
+                            <p>Bachelor of Science in Computer Science</p>
+                            <p>GPA: 3.8/4.0</p>
+                            
+                            <!-- More preview content would continue -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right Column - Preview -->
+            <div class="col-lg-4 order-lg-2 order-1 resume-preview-container">
+                <div class="sticky-top" style="top: 20px;">
+                    <div class="card">
+                        <div class="card-header bg-primary text-white">
+                            <h5 class="mb-0">Resume Preview</h5>
+                        </div>
+                        <div class="card-body">
+                            <div class="resume-preview">
+                                <!-- Live preview would be rendered here -->
+                                <div class="text-center">
+                                    <i class="fas fa-file-alt text-muted" style="font-size: 5rem; opacity: 0.3;"></i>
+                                    <p class="mt-2">Your resume preview will appear here</p>
+                                </div>
+                            </div>
+                            <div class="d-grid gap-2 mt-3">
+                                <button class="btn btn-primary">
+                                    <i class="fas fa-download me-1"></i>Download PDF
+                                </button>
+                                <button class="btn btn-outline-secondary">
+                                    <i class="fas fa-print me-1"></i>Print
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer (same as before) -->
+    <footer class="bg-dark text-white py-4">
+        <!-- ... same footer as previous examples ... -->
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Add template selection functionality
+        document.querySelectorAll('.template-card').forEach(card => {
+            card.addEventListener('click', function() {
+                document.querySelectorAll('.template-card').forEach(c => {
+                    c.classList.remove('selected');
+                    c.querySelector('button').className = 'btn btn-sm btn-outline-primary';
+                });
+                this.classList.add('selected');
+                this.querySelector('button').className = 'btn btn-sm btn-primary';
+            });
+        });
+    </script>
+</body>
+</html>

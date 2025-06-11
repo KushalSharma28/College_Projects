@@ -1,0 +1,21 @@
+Frontend Architecture Web Dashboard (React.js)
+
+Core Structure
+
+src/
+├── assets/            # Static files
+├── components/        # Reusable UI components
+│   ├── BinStatus/     # Bin status indicators
+│   ├── Maps/          # Map components
+│   ├── Charts/        # Data visualization
+│   └── Notifications/ # Alert system
+├── pages/
+│   ├── Dashboard/     # Main overview
+│   ├── Bins/         # Bin management
+│   ├── Routes/       # Collection routes
+│   ├── Reports/      # Analytics
+│   └── Settings/     # System configuration
+├── services/         # API clients
+├── store/            # State management
+├── utils/            # Helper functions
+└── styles/           # Global styles

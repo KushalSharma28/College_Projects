@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Placement Drive & Event Portal</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header>
+  <div class="nav-container container" role="banner">
+    <a href="#" class="logo" aria-label="Placement Drive and Event Portal">Placement & Event Portal</a>
+    <nav role="navigation" aria-label="Primary Navigation">
+      <ul>
+        <li><a href="#placements">Placements</a></li>
+        <li><a href="#events">Events</a></li>
+        <li><a href="#register">Register</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <section class="hero" aria-labelledby="hero-title">
+    <h1 id="hero-title">Your Gateway to Career Opportunities & Events</h1>
+    <p>Explore upcoming placement drives and campus events. Stay informed, register, and prepare for success.</p>
+    <button class="btn-primary" onclick="document.getElementById('placements').scrollIntoView({behavior:'smooth'})" aria-label="View Placement Drives">View Drives</button>
+    <button class="btn-primary" onclick="document.getElementById('events').scrollIntoView({behavior:'smooth'})" aria-label="View Placement Drives">View Events</button>
+  </section>
+
+  <section id="placements" aria-labelledby="placements-title">
+    <h2 class="section-title" id="placements-title">Upcoming Placement Drives</h2>
+    <div class="placements-grid" role="list">
+      <article class="card" role="listitem" tabindex="0" aria-label="Placement drive at ABC Technologies for Software Engineer role on 5th July, 2024">
+        <h3>ABC Technologies</h3>
+        <p>Role: Software Engineer</p>
+        <p>Eligibility: B.Tech CSE, IT - 2024 Passout</p>
+        <p class="date">Date: 5th July, 2024</p>
+      </article>
+      <article class="card" role="listitem" tabindex="0" aria-label="Placement drive at XYZ Corp for Data Analyst role on 10th July, 2024">
+        <h3>XYZ Corp</h3>
+        <p>Role: Data Analyst</p>
+        <p>Eligibility: B.Sc Statistics, MCA - 2024 Passout</p>
+        <p class="date">Date: 10th July, 2024</p>
+      </article>
+      <article class="card" role="listitem" tabindex="0" aria-label="Placement drive at FinTech Solutions for Business Analyst role on 18th July, 2024">
+        <h3>FinTech Solutions</h3>
+        <p>Role: Business Analyst</p>
+        <p>Eligibility: MBA, BBA - 2024 Passout</p>
+        <p class="date">Date: 18th July, 2024</p>
+      </article>
+    </div>
+  </section>
+
+  <section id="events" aria-labelledby="events-title">
+    <h2 class="section-title" id="events-title">Upcoming Campus Events</h2>
+    <div class="events-grid" role="list">
+      <article class="card" role="listitem" tabindex="0" aria-label="Career guidance webinar on 8th July, 2024 at Online platform">
+        <h3>Career Guidance Webinar</h3>
+        <p>Join experts to learn about career paths and skill development.</p>
+        <p class="date">Date: 8th July, 2024</p>
+        <p>Venue: Online</p>
+      </article>
+      <article class="card" role="listitem" tabindex="0" aria-label="Resume building workshop on 12th July, 2024 at Seminar Hall">
+        <h3>Resume Building Workshop</h3>
+        <p>Get tips and tricks to make your resume stand out.</p>
+        <p class="date">Date: 12th July, 2024</p>
+        <p>Venue: Seminar Hall</p>
+      </article>
+      <article class="card" role="listitem" tabindex="0" aria-label="Group discussion & interview prep on 15th July, 2024 at Conference Room">
+        <h3>Group Discussion & Interview Prep</h3>
+        <p>Practical session to improve GD and interview skills.</p>
+        <p class="date">Date: 15th July, 2024</p>
+        <p>Venue: Conference Room</p>
+      </article>
+    </div>
+  </section>
+
+  <section class="stats" aria-label="Placements statistics">
+    <div class="stat" tabindex="0" aria-label="Total placement drives 25">
+      <div class="stat-number">25</div>
+      <div class="stat-label">Placement Drives</div>
+    </div>
+    <div class="stat" tabindex="0" aria-label="Total events 12">
+      <div class="stat-number">12</div>
+      <div class="stat-label">Events</div>
+    </div>
+    <div class="stat" tabindex="0" aria-label="Total students placed 350">
+      <div class="stat-number">350+</div>
+      <div class="stat-label">Students Placed</div>
+    </div>
+  </section>
+
+  <section id="register" aria-labelledby="register-title" class="form-section">
+    <h2 class="section-title" id="register-title">Register for Drives & Events</h2>
+    <form id="registrationForm" aria-describedby="formDescription" novalidate>
+      <p id="formDescription" style="color: var(--color-text); margin-bottom: 1.5rem;">
+        Fill in your details below to register your interest.
+      </p>
+      <label for="name">Full Name</label>
+      <input type="text" id="name" name="name" autocomplete="name" required aria-required="true" placeholder="Your full name" />
+      
+      <label for="email">Email Address</label>
+      <input type="email" id="email" name="email" autocomplete="email" required aria-required="true" placeholder="your.email@example.com" />
+      
+      <label for="interest">Choose your interest</label>
+      <select id="interest" name="interest" required aria-required="true">
+        <option value="" disabled selected>Select placement drive or event</option>
+        <option value="abc-tech">ABC Technologies - Software Engineer</option>
+        <option value="xyz-corp">XYZ Corp - Data Analyst</option>
+        <option value="fintech-solutions">FinTech Solutions - Business Analyst</option>
+        <option value="career-webinar">Career Guidance Webinar</option>
+        <option value="resume-workshop">Resume Building Workshop</option>
+        <option value="gd-interview">Group Discussion & Interview Prep</option>
+      </select>
+
+      <button type="submit" class="btn-primary" aria-live="polite">
+        Submit Registration
+      </button>
+      <p id="formMessage" role="alert" style="margin-top: 1rem; font-weight: 600;"></p>
+    </form>
+  </section>
+</main>
+
+<footer>
+  &copy; 2024 PlaceEvent Portal — All rights reserved.
+</footer>
+
+<script>
+  // Simple client-side form validation and submission simulation
+  document.getElementById('registrationForm').addEventListener('submit', function(event) {
+    event.preventDefault();
+    const form = event.target;
+    const formMessage = document.getElementById('formMessage');
+
+    // Basic validation
+    if (!form.checkValidity()) {
+      formMessage.style.color = 'crimson';
+      formMessage.textContent = 'Please fill out all required fields correctly.';
+      return;
+    }
+
+    // Simulate form submission
+    formMessage.style.color = 'green';
+    formMessage.textContent = 'Thank you for registering! We will contact you soon.';
+
+    form.reset();
+  });
+</script>
+
+</body>
+</html>
+

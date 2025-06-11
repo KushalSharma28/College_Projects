@@ -1,0 +1,16 @@
+Backend Architecture
+Node.jsExpress API Structure
+
+src/
+├── config/           # Environment configs
+├── controllers/      # Route handlers
+│   ├── bins.js       # Bin management
+│   ├── routes.js     # Collection routes
+│   └── alerts.js     # Notification system
+├── models/           # Database models
+├── routes/           # API endpoints
+├── services/         # Business logic
+│   ├── iot.js        # IoT communication
+│   └── analytics.js  # Data processing
+├── middleware/       # Auth and validation
+└── app.js            # Main application
